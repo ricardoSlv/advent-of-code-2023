@@ -21,7 +21,7 @@ const numberStringDigitValues: Record<string, number> = {
   nine: 9,
 };
 
-const lines = fs.readFileSync("./1/input.txt", { encoding: "utf8" }).split("\n");
+const lines = fs.readFileSync("./day_1/input.txt", { encoding: "utf8" }).split("\n");
 
 const sum = lines.reduce((prevValue, currLine) => {
   const digits = [...currLine.matchAll(/\d/g)];
@@ -37,8 +37,10 @@ const sum = lines.reduce((prevValue, currLine) => {
 
   digits.sort((d1, d2) => (d1.index as number) - (d2.index as number));
 
-  const currValue =
-    numberStringDigitValues[(digits?.at(0) || ["0"])[0]] * 10 + numberStringDigitValues[(digits?.at(-1) || ["0"])[0]];
+  const tensString = digits?.at(0)?.[0] || "0";
+  const onesString = digits?.at(-1)?.[0] || "0";
+  const currValue = numberStringDigitValues[tensString] * 10 + numberStringDigitValues[onesString];
+
   return prevValue + currValue;
 }, 0);
 
