@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "solution": "ts-node ./day_$npm_config_number/solution.ts",
+    "solution1": "ts-node ./day_$npm_config_number/solution_part1.ts",
+    "solution2": "ts-node ./day_$npm_config_number/solution_part2.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
