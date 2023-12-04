@@ -42,9 +42,10 @@ const validGameIdsSumm = games.reduce((previousValue, currentGame) => {
     (subset) =>
       subset.red <= colorsAvailable.red && subset.green <= colorsAvailable.green && subset.blue <= colorsAvailable.blue
   );
+  if (gameIsValid) {
+    console.log(previousValue + currentGame.id);
+  }
   return previousValue + (gameIsValid ? currentGame.id : 0);
 }, 0);
-
-// console.log(JSON.stringify(games, null, 2));
 
 console.log(validGameIdsSumm);

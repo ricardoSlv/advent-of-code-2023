@@ -28,14 +28,11 @@ const validNumbers = numberMatches
   .map((lineMatches, index) => {
     return lineMatches.filter((matchArray) => {
       const valueMatched = matchArray?.at(0);
-      const indexMatched = matchArray?.index;
+      const indexMatched = matchArray?.index || 0;
 
-      return (
-        valueMatched
-          ?.split("")
-          //@ts-ignore
-          .some((_, indexInMatch) => hasSymbolInPeers(index, indexMatched + indexInMatch, grid))
-      );
+      return valueMatched
+        ?.split("")
+        .some((_, indexInMatch) => hasSymbolInPeers(index, indexMatched + indexInMatch, grid));
     });
   })
   .flat();

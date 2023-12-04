@@ -21,7 +21,6 @@ const games: Game[] = lines.map((line) => {
     const colorStrings = subsSetString.split(", ");
     colorStrings.map((colorString) => {
       const [quantity, color] = colorString.split(" ");
-      //@ts-ignore
       subSet[color] = parseInt(quantity);
     });
 
@@ -52,7 +51,5 @@ const minimumBallsPerGame = games.map((currentGame) => {
 const gamesPowerSumm = minimumBallsPerGame.reduce((previousValue, currentBallsNeeded) => {
   return previousValue + currentBallsNeeded.red * currentBallsNeeded.green * currentBallsNeeded.blue;
 }, 0);
-
-// console.log(JSON.stringify(minimumBallsPerGame, null, 2));
 
 console.log(gamesPowerSumm);
