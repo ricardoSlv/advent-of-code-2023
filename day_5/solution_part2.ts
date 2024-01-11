@@ -29,6 +29,7 @@ const seeds = seedstextBlock
     const [seedNumber, length] = pair.split(" ").map((x) => parseInt(x));
     return { seedNumber, length };
   });
+
 const almanacGuides: Record<string, mapperLine[]> = {
   seedTosoil: getMapperFromTextBlock("seed-to-soil", seedTosoilTextBlock),
   soilTofertilizer: getMapperFromTextBlock("soil-to-fertilizer", soilTofertilizerTextBlock),
@@ -75,7 +76,6 @@ function getSeedLocation(seedNumber: number) {
   return location;
 }
 
-console.log(seeds);
 let minLocation = Infinity;
 
 seeds?.forEach(({ seedNumber, length }) => {
